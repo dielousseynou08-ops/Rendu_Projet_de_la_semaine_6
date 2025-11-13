@@ -45,7 +45,7 @@ class _ChampInformationState extends State<ChampInformation> {
             return Card(
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: ListTile(
-                // 🌍 Mini carte dans le leading
+                //localisation de la parcelle sur une carte
                 leading: (latitude != null && longitude != null)
                     ? SizedBox(
                         width: 80,

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "68712318485",
+    "project_id": "bdflutter-da9ef",
+    "storage_bucket": "bdflutter-da9ef.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68712318485:android:8631c02e7de6d0cb61f01c",
+        "android_client_info": {
+          "package_name": "com.example.myreadinglibrary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHlI9j_h6Bl0GthCYxeu-qo62o64CWbz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68712318485:android:701b8d2a50d7191161f01c",
+        "android_client_info": {
+          "package_name": "com.example.ronkhlab_agro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHlI9j_h6Bl0GthCYxeu-qo62o64CWbz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
