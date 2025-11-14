@@ -45,16 +45,6 @@ class UserDb {
       usrPassword TEXT NOT NULL
     )
   ''');
-
-        // table notes
-        await db.execute('''
-    CREATE TABLE notes(
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      title TEXT NOT NULL,
-      content TEXT NOT NULL,
-      createdAt TEXT NOT NULL
-    )
-  ''');
       },
     );
   }
