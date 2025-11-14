@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:ronkhlab_agro/widgets/widget_home_menu.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -69,22 +76,26 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: NavigationBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.green[300], // ← Couleur quand sélectionné
+        unselectedItemColor: Colors.grey,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index; // index sélectionné
+          });
+        },
+        items: [
+          BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
+          BottomNavigationBarItem(label: 'Communauté', icon: Icon(Icons.group)),
+          BottomNavigationBarItem(
+            label: 'Notification',
+            icon: Icon(Icons.notification_add),
+          ),
+          BottomNavigationBarItem(label: 'Profil', icon: Icon(Icons.person)),
+        ],
+      ),
     );
   }
-}
-
-Widget NavigationBar() {
-  return BottomNavigationBar(
-    type: BottomNavigationBarType.fixed,
-    items: [
-      BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
-      BottomNavigationBarItem(label: 'Communauté', icon: Icon(Icons.group)),
-      BottomNavigationBarItem(
-        label: 'Notification',
-        icon: Icon(Icons.notification_add),
-      ),
-      BottomNavigationBarItem(label: 'Profil', icon: Icon(Icons.person)),
-    ],
-  );
 }
