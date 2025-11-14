@@ -19,6 +19,7 @@ class WidgetHomeMenu extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(15),
       child: GridView.builder(
+        scrollDirection: Axis.vertical,
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,

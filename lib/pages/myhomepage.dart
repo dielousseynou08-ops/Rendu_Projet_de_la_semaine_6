@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 100,
+              height: 80,
               width: double.infinity,
               margin: EdgeInsets.all(15),
               decoration: BoxDecoration(
@@ -69,6 +69,22 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: NavigationBar(),
     );
   }
+}
+
+Widget NavigationBar() {
+  return BottomNavigationBar(
+    type: BottomNavigationBarType.fixed,
+    items: [
+      BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
+      BottomNavigationBarItem(label: 'Communauté', icon: Icon(Icons.group)),
+      BottomNavigationBarItem(
+        label: 'Notification',
+        icon: Icon(Icons.notification_add),
+      ),
+      BottomNavigationBarItem(label: 'Profil', icon: Icon(Icons.person)),
+    ],
+  );
 }
