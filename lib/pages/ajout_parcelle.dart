@@ -37,7 +37,7 @@ class _AjoutParcellesState extends State<AjoutParcelles> {
       return;
     }
 
-    // 🔥 Enregistre dans Firestore
+    //  Enregistre dans Firestore
     await FirebaseFirestore.instance.collection('Champs').add({
       'Name': nameController.text,
       'Type': typeController.text,
@@ -95,7 +95,7 @@ class _AjoutParcellesState extends State<AjoutParcelles> {
               ),
               const SizedBox(height: 15),
 
-              // 🌍 Ajout du champ "Sélection de la parcelle"
+              // Ajout du champ "Sélection de la parcelle"
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
                 child: Align(
@@ -120,7 +120,7 @@ class _AjoutParcellesState extends State<AjoutParcelles> {
                     initialCenter: LatLng(
                       16.0194,
                       -16.5107,
-                    ), // 📍 Position de Ronkh (par défaut)
+                    ), // Position de Ronkh (par défaut)
                     initialZoom: 13,
                     onTap: (tapPosition, point) {
                       setState(() {
