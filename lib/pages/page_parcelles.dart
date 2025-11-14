@@ -62,7 +62,6 @@ class _PageParcellesState extends State<PageParcelles> {
             ),
           ),
 
-          // 👇 Important : on utilise Expanded pour que la liste prenne tout l’espace disponible
           const Expanded(child: ChampInformation()),
         ],
       ),
