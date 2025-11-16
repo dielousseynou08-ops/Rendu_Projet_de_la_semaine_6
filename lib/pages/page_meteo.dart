@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:ronkhlab_agro/pages/prevision_de_la_semaine.dart';
@@ -85,9 +87,6 @@ class _PageMeteoState extends State<PageMeteo> {
           'https://api.openweathermap.org/data/3.0/onecall?lat=$lat&lon=$lon&exclude=current,minutely,hourly,alerts&appid=$_apiKey&units=metric&lang=fr';
       final forecastResponse = await http.get(Uri.parse(forecastUrl));
 
-      print("Status: ${forecastResponse.statusCode}");
-      print("Body: ${forecastResponse.body}");
-
       if (forecastResponse.statusCode == 200) {
         final data = json.decode(forecastResponse.body);
         final previsions = data['daily'] as List<dynamic>;
@@ -151,24 +150,6 @@ class _PageMeteoState extends State<PageMeteo> {
             child: Column(
               children: [
                 // Bandeau décoratif je pense que je vais le supprimer
-                Container(
-                  height: 100,
-                  width: double.infinity,
-                  margin: const EdgeInsets.only(bottom: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Le temps actuel",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
 
                 // Contenu météo
                 if (_isLoading)

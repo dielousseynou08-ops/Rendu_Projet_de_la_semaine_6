@@ -67,8 +67,13 @@ class _HomePageState extends State<HomePage> {
               width: double.infinity,
               margin: EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.amberAccent,
                 borderRadius: BorderRadius.circular(15),
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                "Espace de publicités",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
 
@@ -79,7 +84,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.green[300], // ← Couleur quand sélectionné
+        selectedItemColor: Colors.green[300], // Couleur quand sélectionné
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {

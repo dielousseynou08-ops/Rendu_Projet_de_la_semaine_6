@@ -7,6 +7,7 @@ class Users {
     this.id,
     required this.usrName,
     required this.usrPassword,
+    // ignore: non_constant_identifier_names
     required VALUES,
   });
 

@@ -2,12 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:ronkhlab_agro/database_sqlite/infos_crud_parcelle.dart';
 
 class ChampInformation extends StatefulWidget {
   const ChampInformation({super.key});
 
   @override
-  _ChampInformationState createState() => _ChampInformationState();
+  State<ChampInformation> createState() => _ChampInformationState();
 }
 
 class _ChampInformationState extends State<ChampInformation> {
@@ -19,7 +20,7 @@ class _ChampInformationState extends State<ChampInformation> {
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: _champsStream,
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+      builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Center(child: Text('Erreur de chargement des données.'));
         }
@@ -38,14 +39,12 @@ class _ChampInformationState extends State<ChampInformation> {
             final DocumentSnapshot document = snapshot.data!.docs[index];
             final data = document.data() as Map<String, dynamic>;
 
-            // 🔹 Récupération sécurisée des coordonnées
             final double? latitude = data['Latitude']?.toDouble();
             final double? longitude = data['Longitude']?.toDouble();
 
             return Card(
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: ListTile(
-                //localisation de la parcelle sur une carte
                 leading: (latitude != null && longitude != null)
                     ? SizedBox(
                         width: 80,
@@ -57,7 +56,7 @@ class _ChampInformationState extends State<ChampInformation> {
                               initialCenter: LatLng(latitude, longitude),
                               initialZoom: 13,
                               interactionOptions: const InteractionOptions(
-                                flags: InteractiveFlag.none, // pas de mouvement
+                                flags: InteractiveFlag.none,
                               ),
                             ),
                             children: [
@@ -100,13 +99,27 @@ class _ChampInformationState extends State<ChampInformation> {
                     ),
                     if (latitude != null && longitude != null)
                       Text(
-                        'Lat: ${latitude.toStringAsFixed(5)}, '
-                        'Lng: ${longitude.toStringAsFixed(5)}',
+                        'Lat: ${latitude.toStringAsFixed(5)}, Lng: ${longitude.toStringAsFixed(5)}',
                         style: const TextStyle(
                           fontSize: 12,
                           color: Colors.grey,
                         ),
                       ),
+                  ],
+                ),
+
+                // Boutons Modifier & Supprimer
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.edit, color: Colors.blue),
+                      onPressed: () => showEditDialog(context, document),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.delete, color: Colors.red),
+                      onPressed: () => confirmDelete(context, document.id),
+                    ),
                   ],
                 ),
               ),

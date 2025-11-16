@@ -32,6 +32,7 @@ class UserDb {
     //  await deleteDatabase(join(await getDatabasesPath(), "mydb.db"));
     final databasePath = await getDatabasesPath();
 
+    // ignore: non_constant_identifier_names
     final Path = join(databasePath, databaseName);
     return openDatabase(
       Path,
@@ -48,17 +49,6 @@ class UserDb {
       },
     );
   }
-
-  //pour la barre de recherche
-
-  /* Future<List<Notes>> searchNote(String keyword) async {
-    final db = await initDB();
-    List<Map<String, Object?>> searchResult = await db.rawQuery(
-      "select * from notes  where noteTitle LIKE ?",
-      ["%$keyword%"],
-    );
-    return searchResult.map((e) => Notes.fromMap(e)).toList();
-  }*/
 
   //insert
 
