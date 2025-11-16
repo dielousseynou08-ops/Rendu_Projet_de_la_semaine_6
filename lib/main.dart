@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'RonkhLab_Agro',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Color(0xFF128023)),
       home: const LoginScreen(),
     );

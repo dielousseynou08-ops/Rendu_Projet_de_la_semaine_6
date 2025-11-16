@@ -186,7 +186,18 @@ class _SingUpState extends State<SingUp> {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      if (formkey.currentState!.validate()) {
+                      if (!ischecked) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "Vous devez accepter les conditions.",
+                            ),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                        return; // stop ici
+                      }
+                      if (formkey.currentState!.validate() && ischecked) {
                         final db = UserDb();
                         db
                             .signup(

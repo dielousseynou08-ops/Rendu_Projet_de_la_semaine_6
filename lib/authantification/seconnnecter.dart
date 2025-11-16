@@ -171,6 +171,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: TextButton(
                     onPressed: () {
+                      if (!ischecked) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "Vous devez accepter les conditions.",
+                            ),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                        return; // stop ici
+                      }
                       if (formkey.currentState!.validate()) {
                         login();
                       }
