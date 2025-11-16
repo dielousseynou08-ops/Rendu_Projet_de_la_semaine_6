@@ -18,7 +18,8 @@ class _PageMeteoState extends State<PageMeteo> {
   bool _isLoading = false;
   Map<String, dynamic>? _donneesMeteo;
 
-  final String _apiKey = "925603a3bc1c30df6506663f7566c526";
+  final String _apiKey =
+      "Clé à retrouver sur le document contenant le lien git";
   final String _location = 'Ronkh';
 
   // la Fonction pour récupérer les données météo
